@@ -217,7 +217,7 @@ else
     GCC_LIBCPP=false
 fi
 
-PERL_CC=`$ARCHPERL -V | grep cc=\' | sed "s#.*cc=\'##g" | sed "s#\'.*##g"`
+PERL_CC=`$ARCHPERL -V | grep cc=\' | sed "s#.*cc='##g" | sed "s#'.*##g"`
 
 if [[ "$PERL_CC" != "$GCC" ]]; then
     echo "********************************************** WARNING *************************************"
@@ -540,6 +540,7 @@ function build {
         Crypt::OpenSSL::RSA)
             build_module Crypt-OpenSSL-Random-0.11
             build_module Crypt-OpenSSL-RSA-0.28
+            ;;
     esac
 }
 
