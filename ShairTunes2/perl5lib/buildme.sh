@@ -52,7 +52,7 @@ function usage {
 $0 [args] [target]
 -h            this help
 -c            do not run make clean
--i <lmsbase>  install modules in lmsbase directory
+-i <libbase>  install modules in lmsbase directory
 -p <perlbin > set custom perl binary
 -t            do not run tests
 
@@ -580,7 +580,7 @@ rsync -amv --include='*/' --include='*.pm' --exclude='*' $PERL_BASE/lib/perl5/$A
 rsync -amv --exclude=$ARCH --exclude='inc/' --exclude='Module/' --include='*/' --include='*.pm' --exclude='*' $PERL_BASE/lib/perl5/ $PERL_ARCH/
 rsync -amv --include='*/' --include='*.so' --include='*.al' --include='*.ix' --exclude='*' $PERL_BASE/lib/perl5/$ARCH/auto $PERL_ARCH/$ARCH/
 
-if [ $LIBBASEDIR ]; then
+if [ "${LIBBASEDIR+X}" = "X" ]; then
     if [ ! -d $LIBBASEDIR/5.$PERL_MINOR_VER/$ARCH ]; then
         mkdir -p $LIBBASEDIR/5.$PERL_MINOR_VER/$ARCH
     fi
