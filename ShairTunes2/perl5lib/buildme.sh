@@ -52,7 +52,7 @@ function usage {
 $0 [args] [target]
 -h            this help
 -c            do not run make clean
--i <libbase>  install modules in lmsbase directory
+-i <libbase>  install modules in libbase directory
 -p <perlbin > set custom perl binary
 -t            do not run tests
 
@@ -534,12 +534,13 @@ function build {
             ;;
 
         Crypt::OpenSSL::Bignum)
-            build_module Crypt-OpenSSL-Bignum-0.06
+            build_module Crypt-OpenSSL-Bignum-0.09
             ;;
 
         Crypt::OpenSSL::RSA)
-            build_module Crypt-OpenSSL-Random-0.11
-            build_module Crypt-OpenSSL-RSA-0.28
+            build_module Crypt-OpenSSL-Guess-0.11
+            build_module Crypt-OpenSSL-Random-0.15
+            build_module Crypt-OpenSSL-RSA-0.31
             ;;
     esac
 }
